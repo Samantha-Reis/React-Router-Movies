@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {Link} from "react-router-dom";
 
 const Movie = (props) => {
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState();
+  console.log(props);
  
   useEffect(() => {
     const id = 1;
     // change ^^^ that line and grab the id from the URL
     // You will NEED to add a dependency array to this effect hook
-
        axios
         .get(`http://localhost:5000/api/movies/${id}`)
         .then(response => {
@@ -34,7 +35,7 @@ const Movie = (props) => {
   return (
     <div className="save-wrapper">
       <div className="movie-card">
-        <h2>{title}</h2>
+      <Link to="/movies/{id of movie here}"> <h2>{title}</h2></Link>
         <div className="movie-director">
           Director: <em>{director}</em>
         </div>
